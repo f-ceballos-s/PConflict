@@ -1,0 +1,226 @@
+---
+title: 'Incomplete Peace: Unintended Consequences of Partial Conflict Resolution in Multilateral Conflicts'
+author: "Federico Ceballos Sierra"
+output:
+  word_document:
+    reference_docx: template.docx
+header-includes:
+   - \usepackage{dsfont}
+always_allow_html: true
+link-citations: true
+bibliography: C:/Users/fc3/Box/PConflict2/R_Markdown/PConflict2_bib.bib
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(ggpubr)
+library(knitr)
+library(cartography)
+library(flextable)
+library(officer)
+library(vistime)
+library(plotly)
+# source("C:/Users/fc3/Box/PConflict2/R_Code/PConflict_Desc.R")
+```
+
+# Abstract
+
+This paper provides evidence on the impact of conflict resolution processes (CRPs) in settings of multilateral conflict. Previous studies on CRPs have focused on bilateral conflicts between the State and a single armed group, finding positive impacts on economic activity after the demobilization of the armed group, a phenomenon known as the peace dividend. This paper studies the case where the State is warring multiple armed groups and a peace agreement is reached with only one of them. I find that the impact of a CRP in this setting is heterogeneous: areas where the sole armed group demobilized, experience an increase in economic activity; while areas where the demobilizing group was outlived by another armed group experience no change in economic activity and a surge in illegal economic activity in the form of coca production.
+
+**Keywords:** demobilization, multilateral conflict, peace dividend, coca cultivation.
+
+# 1. Introduction
+
+Multilateral conflicts are widespread, very destructive and particularly persistent. According to the Uppsala Conflict Data Program, approximately one in three currently active conflicts over control of the Government involve the legitimate State and at least two armed groups [@gleditsch2002armed; @pettersson2020organized]. In those conflicts, it is difficult to negotiate peace with all parties at the same time, so Governments often try to negotiate peace sequentially with one armed group at the time. Their hope is that by negotiating peace with at least one armed group they can demobilize a share of the violent combatants and reap the positive economic impacts associated with the reduced uncertainty.
+
+There is some existing evidence that conflict resolution processes (CRPs) can have substantial positive economic impacts, but this evidence is limited to bilateral conflicts between a strong State and a single armed group. In Northern Ireland, @besley2012estimating find that the peace agreement between the English Government and the Irish Republican Army lead to an increase in housing prices between 1.3% and 3.5% Similarly, @colino2012conflict find that employment in the Basque Country surged by 4% after a ceasefire was agreed between the Spanish Government and the Basque Homeland and Freedom (ETA) group. Although the evidence of the peace dividend is consistent across these studies, there is  concern that these findings, which are valid for the narrow band of bilateral conflicts, might not be robust across other configurations of conflict.
+
+Within the unexplored spectrum is the set of multilateral conflicts fought between the legitimate State and several armed groups. There are reasons to believe that the outcome of partial CRPs undertaken with a subset of the warring factions may differ from those of bilateral conflicts. For instance, the demobilization of a single armed group in a bilateral context returns the monopoly of violence to the State. That is not the case of partial CRPs in multilateral conflicts where the State still has to contest the use of violence with the remaining armed groups. This distinction is non-trivial: the uncontested use of violence is the foundation of the State and a necessary condition to govern effectively [@acemoglu2013monopoly]. A CRP that fails to return the monopoly of violence to the State might not reap the full dividends of peace. 
+
+Furthermore, armed groups often derive their funding from illegal activities. In these conflicts, the impact of a CRP is not limited to a reconfiguration of political and military structures but is also felt on the local illegal market. Once again, the distinction between bilateral and multilateral conflicts plays an important role in understanding the differential impact of CRPs. In particular, demobilizing a single armed group in a bilateral conflict would remove the single supplier of the market. However, the demobilization of one armed group in a multilateral conflict would leave a monopolistic market (if there were two armed groups) or a more consolidated market (if there were more than two armed groups). Therefore, the demobilization of one armed group might have unintended consequences on the local economy as the market structure reorganizes. To the knowledge of the author, there is no empirical evidence to support or reject these hypotheses, obfuscating the understanding of the impact of CRPs in multilateral conflicts.
+
+The current study aims to close this gap in the literature by studying the CRP between the Colombian Government and the Revolutionary Armed Forces of Colombia (FARC). This CRP, which started in August 2012, led to the signature of the Final Agreement in October 2016 and the demobilization of the bulk of the FARC combatants. Although similar efforts to sign a peace agreement were made with the other guerrilla with Nation-wide presence, the National Liberation Army (ELN), they were unsuccessful. Therefore, the Colombian case fulfills three necessary conditions for this type of study: a multilateral conflict that involved the legitimate Government and two armed groups (FARC and ELN) with territorial presence that often overlapped, the involvement of all armed groups in illegal markets - in this case the cocaine business - and one non-demobilizing armed group (ELN) that continued its activity unabated during the period of study. 
+
+I exploit this unique setting to the address the question of the impact of partial CRPs in multilateral conflicts and how they differ from bilateral conflicts. Using a difference in difference approach, I compare the changes in number of violent incidents, economic activity, and number of hectares planted in coca leaf across three types of municipalities characterized by the configuration of armed group presence: (i) sole FARC municipalities; (ii) joint FARC-ELN municipalities; and (iii) sole ELN municipalities. Sole ELN municipalities represent the scenario of "war as usual" and provide a comparison group to disentangle the effects of "complete conflict resolution" in sole FARC municipalities and "partial conflict resolution" in municipalities of joint FARC-ELN municipalities.
+
+Although there is a decrease in number of violent incidents across both groups of municipalities where the FARC was present, the results of economic activity and coca cultivation show opposite directions for each group supporting the overarching hypothesis that the outcome of partial CRPs in multilateral conflicts differs from that of bilateral conflicts. On one hand, there is evidence of a peace dividend in sole FARC municipalities, in line with the results of the conventional studies on bilateral conflicts [@besley2012estimating; @colino2012conflict]. In this case, the results shows unequivocally positive outcomes of the CRP: increase in economic activity and no change in intensity of coca cultivation. On the other hand, areas in which the demobilizing armed group was outlived by another armed group had unequivocally negative outcomes of the CRP: no change in economic activity and an increase in coca cultivation. 
+
+These results frame the contribution of this paper as nationally and internationally relevant. Nationally, it offers a guideline to Governments engaged in multilateral conflicts on how to design post-conflict interventions that are tailor-made to armed group presence configuration. For instance, military presence might be kept in areas where one group remains, whereas areas where the State regained the monopoly of violence can transition to peace-building efforts. Internationally, the result place the outcome of CRPs in a broader context, as the demobilization of an armed group can increase supply of illicit drugs and have negative spillovers on other black markets, such as weaponry. 
+
+This study also contributes to the growing literature on remote sensing and economic outcomes. Due to the difficulty of capturing data on economic activity in war-stricken areas, I rely on satellite imagery of night-time lights to construct a variable that measures of economic activity. Previous works have found that remote sensing is a useful tool for measuring economic conditions in war-stricken areas [@shortland2013war; @li2015detecting] and has been applied in the Colombian context [@ch2020measuring]. This study provides another setting in which satellite imagery is used for economic empirical analysis, that of using night lights data to measure recovery of economic activity after a CRP. Moreover, as the presence of the state is still weak in frontier areas of armed group presence, satellite imagery can be used in the study of economic conditions and the design of timely policies.
+
+Finally, this study has important implications for the peace agreement in Colombia. Empirical evidence of the benefits reaped by the country can strengthen its implementation by showing the current skeptical Government the positive short-term impact of peace, and by giving the citizens a renewed sense of hope in the outcome of it. Furthermore, it can incentivize the Government to pursue peace agreements with the remaining rebel groups that, like the one signed with FARC, might seem politically costly before the implementation but whose final benefits are found to outmatch the costs. The evidence of the cost of inadequately filling the void left by the demobilized groups should also encourage the design of public policies as to avoid negative impacts in peace agreements of that kind.
+
+The outline of the paper is as follows: Section 2 of this paper describes the background of the civil conflict in Colombia as well as the CRP between the Colombian Government and FARC. Section 3 describes the data set and presents the descriptive statistics. Section 4 presents the results for the impact of the CRP on the intensity of violence (Subsection 4.1), the effect of the change in intensity of violence on economic activity (Subsection 4.2), the relationship between rural activity and coca cultivation (Subsection 4.3), and a set of ancillary estimations performed as robustness checks to test the validity of the results presented in the previous three subsections (Subsection 4.4). Section 5 offers conclusions and a discussion on policy implications of the study and states the limitations of this study.
+
+# 2. Background
+
+## 2.1. Guerrilla conflict, violence, and drug trafficking in Colombia
+
+FARC and ELN share similar origins rooted in the turbulent political period known as "La Violencia", when partisans of the Liberal and Conservative parties waged a civil war that resulted in 200,000 deaths [@saumeth2010historia]. "La Violencia" ended with the creation of the National Front, a political agreement between both parties to alternate power and share control of the Government [@behar1985guerras]. Other political movements, of which FARC and ELN are prominent examples, were effectively excluded from representation resulting in the birth of groups of resistance [@leogrande2000two]. FARC grew out of the peasant self-defense groups originated in predominantly liberal areas as protection against conservative violence, but eventually transitioned to a Communist agenda [@saumeth2010historia]. ELN traces its origin to student-organized militias inspired by the Cuban revolution, later joined by revolutionary catholic priests who instructed the Marxist-Christian Theology of Liberation into the group [@baca2018conflicto].
+
+For the most part of the 60s and 70s, guerrilla conflict was a low intensity affair, with the notable exception of the US-backed LASSO plan that resulted in the bombardment of the Marquetalia Region in 1964 [@behar1985guerras]. This period is characterized by a stalemate in which the guerrillas never seriously challenged the Colombian forces for the control of the State, but neither could the armed forces subdue the guerrilla groups, as they were firmly entrenched in areas of historic presence where they had establish a strong base [@leogrande2000two]. Some of these areas were the remnants of the "Independent Republics" of the "La Violencia" period, which embodied the fights of the peasantry against the social injustices brought by the large-landowner or "latifundista" economic system [@galli1981Colombia].
+
+The incursion of drug trafficking, and in particular the expansion of the cocaine market in the early 1980s, led to a shift in the dynamics of the guerrilla war. The areas under guerrilla occupation, already neglected by the Colombian State, provided a fertile ground where coca leaf could be produced under the protection and taxation of the guerrillas [@mejia2017microeconomics]. This new influx of revenue resulted in an intensification of the conflict, as guerrillas expanded their ranks, increased their firepower, and extended their area of operation [@pecaut2008farc]. By 1999, FARC had approximately 15,000 combatants divided in some 60 fronts operating in 40% of the territory [@leogrande2000two]. At the same time, ELN reached their peak with some 3,500 combatants split into 30 fronts [@saumeth2010historia].
+
+The relation between the Colombian conflict, and illicit drugs has been well documented in the literature [@mejia2017microeconomics]. First, coca cultivation and trafficking provided an alternative source of revenue once the funds provided by the Soviet Union dwindled [@topel2009hostage]. Second, it fostered the colonization of large tracts of land by peasants wanting to improve their economic situation [@pecaut2008farc]. This wave of colonizers provided guerrillas with a political base as well as recruits to man their increasing number of fronts [@trigoso2017dinamicas]. After a particular turbulent period at the end of the 1990s and beginning of the 2000s, Colombia's military strategy was strengthened by the signature of the Plan Colombia, which included funding and training of the Colombian military forces in anti-insurgent operations. This agreement played a major role in reversing the tide of guerrilla success, particularly of FARC, eventually leading to the signing of a peace agreement between this guerrilla and the Colombian Government in 2016 [@franz2016plan].
+
+## 2.2 Conflict resolution process and the 2016 peace agreement
+
+In late 2012, President Santos announced that secret explanatory talks had taken place between his Government and FARC, and that both parts were willing to initiate formal talks towards the termination of the conflict. President Santos made it clear that mistakes committed during previous peace talks would not be repeated, namely that the Colombian State would not demilitarize areas of the territory to host the peace talks [@beittel2014peace]. Both parties agreed on a framework consisting of six principal themes to be addressed during the negotiations: (1) rural development and land policy; (2) political participation of FARC; (3) ending the armed conflict including reinsertion into civilian life of rebel forces; (4) illicit crops and illegal drug trafficking; (5) victims' reparations, and (6) the implementation of the final negotiated agreement, including its ratification and verification. Talks were to be held in Norway initially and then in Cuba. A condensed timeline of the actual development of the CPR is shown in figure 1:
+
+```{r Figure 1, fig.width=13,fig.height=8,fig.cap="Figure 1. Time line of the Conflict Resolution Process", echo=F, message=F, warning=F}
+    peace.time = data.frame(
+    Event = c("Exploratory phase", "Peace talks","Signature", "Plebiscite",
+              "Theme 1", "Theme 2", "Theme 3","Theme 4", "Theme 5","Theme 6",
+              "Unilateral ceasefire: FARC","Unilateral ceasefire: FARC","Bilateral ceasefire","Suspension of bombardments: Colombian Government", "Demining"),
+    Type = c("Peace<br>talks", "Peace<br>talks","Final<br>agreement<br>and<br>refrendation", "Final<br>agreement<br>and<br>refrendation",
+              "Negotiation<br>on<br>principal<br>themes", "Negotiation<br>on<br>principal<br>themes", "Negotiation<br>on<br>principal<br>themes","Negotiation<br>on<br>principal<br>themes", "Negotiation<br>on<br>principal<br>themes","Negotiation<br>on<br>principal<br>themes",
+              "Suspension<br>of<br>hostilities","Suspension<br>of<br>hostilities","Suspension<br>of<br>hostilities","Suspension<br>of<br>hostilities", "Humanitarian<br>demining<br>agreed"),
+    start_date = as.Date(c("2012-02-23", "2012-10-18","2016-11-24", "2016-10-02",
+              "2012-11-19", "2013-06-11", "2016-01-13","2013-11-28", "2014-06-03","2016-01-13",
+              "2012-11-19","2014-12-17","2013-12-15","2015-06-04", "2015-05-07")),
+    end_date = as.Date(c("2012-08-26", "2016-08-24","2016-11-24", "2016-10-02",
+              "2013-05-26", "2013-11-06", "2016-06-23","2014-05-16", "2015-12-15","2016-08-24",
+              "2013-01-19","2016-08-24","2014-01-15","2016-08-24", "2015-05-07")),
+    stringsAsFactors = FALSE
+    )
+
+p = vistime(peace.time, events = "Event", groups = "Type",
+                     start = "start_date", end = "end_date")
+
+pp = plotly_build(p)
+
+for(i in 1:length(pp$x$data)){
+    if(pp$x$data[[i]]$mode == "text") pp$x$data[[i]]$textfont$size <- 14
+}
+
+pp$x$layout$margin$l = 0
+pp$x$layout$margin$r = 10
+
+pp
+```
+
+Agreement on theme one was geared specifically to address inequality and lack of opportunities for the rural population. In particular, it created a fund for the redistribution of land (Land for Peace Fund) as well as the institutional tools for the formalization of land ownership. Provisions for investment in infrastructure, technical assistance services and loans, among other measures to alleviate rural poverty were also included [@OficinadelAltoComisionadoparalaPaz2016].
+
+The agreement on theme four included the creation of a National Program for the substitution of Illicit Crops (PNIS).The prioritization of formalization of land ownership in areas of high illicit crop cultivation density and demining was a top priority for rural communities. In addition to this, the agreement provided mechanisms for the substitution of illicit crops, such as loans and technical assistance. Furthermore, it included a commitment by FARC to cease any drug-related activities [@beittel2014peace].
+
+The agreement on theme five stated the strategy for the reparation of victims. It was envisioned as a mechanism to strengthen the long-standing Governmental Comprehensive Program for Reparation of Victims (CRPV). A total of 1,2 billiard pesos (400 million dollars) are expected to be invested in communities affected by the conflict over the 2016-2026 period. The money is to be funneled through the CRPV favoring communal reparation in hand with the Regional Development Programs (PDET), incentives to returning to their lands, land restitution and and psycho-social attention to communities [@OficinadelAltoComisionadoparalaPaz2016].
+
+This paper is an evaluation of the events that happened between the start of the peace talks (pre-treatment) and the signature of the Final Agreement for the Termination of Conflict and the Construction of Stable and Durable Peace. As such, it evaluates the changes in intensity of conflict product of the de-escalation of conflict through uni- and bilateral ceasefires, cessation of bombardments, and demining efforts. It also captures the change in public opinion about the end of conflict and the expectation of improvement of economic conditions related to the compromises in reparation of victims, investments in rural development, and weakening of illicit markets.
+
+# 4. Data and descriptive statistics
+
+The empirical strategy used to prove causality faces two challenges: first, the identification of armed group presence at the municipal-level is a challenge given the belligerent nature of guerrilla warfare [@cubides2009guerrillas]. Second, the observation of the dependent variable economic activity is difficult given that areas where rebel groups operate closely match areas where State presence is weak,  official data is scarce, and economic transactions are usually informal [@gafaro2014local]. Traveling to these areas is also a risky endeavor and armed groups are known to attack outsiders, especially if they are gathering information [@krovel2017violence; @garces2017autonomia]. This section addresses these challenges, and in the process describes the data.
+
+The identification of armed group presence was done using the Electoral Risk Maps prepared in 2016 by the Electoral Observation Mission of Colombia (MOE)[@de2016mapa]. The 2016 maps were published in anticipation of the peace plebiscite where the Colombian Government asked the citizenry whether they ratified the agreements consigned in the final document signed in Havana. They identify municipalities where rebel group presence can influence the outcomes of the election based on their presence and continued activity. Three groups are included: FARC, ELN, and criminal gangs. Due to their operative differences and involvement in urban delinquency, I exclude criminal gangs from the analysis. Figure 2(A) presents the geographic distribution by treatment.
+
+I favor the data from the MOE even though the timing of the publication can raise questions about the endogeneity of the presence data with respect to the CRP. Quality-wise, the electoral risk maps was ellaborated by a multi-disciplinary panel of experts streaming from a wide range of institutions including leading universities, think-tanks focusing on conflict, national and international Governmental Organizations. This exhaustive study can potentially paint a clearer picture of armed group influence than conventional presence studies based on observable armed group activity [citation pending]. Furthermore, endogeneity of armed group presence with respect to the CRP is unlikely, as one of the conditions of the CRP was that it was to be "negotiated in the midst of conflict" meaning that no side - Government or FARC - were going to free any territories. The data on violence, coca cultivation, and guerrilla activity backs the argument of a stallmate during the peace agreements, as well as a stabilization of ELN activity during that period of time [@sierraguerrillera2020]. It was not until January 2017 that FARC combatants  abandoned their posts and gathered into the agreed areas where the surrender of arms took place [@pachon2018riesgos].
+
+The second challenge is addressed by using night lights imagery, which has proven adequate for the study of human activity in conflict areas [@shortland2013war; @li2015detecting]. I exploit a happy coincidence: the National Aeronautics and Space Administration (NASA) released two global maps of night lights at a 500 x 500 m. resolution - the highest one available yet - for the years 2012 and 2016 called Black Marble HD [@roman2018nasa]. I use these images to extract values of night lights at the municipal level and employ them in all estimations involving economic activity. Figure 2(B) presents the geographic distribution of changes in economic activity. The pattern of increase in economic activity appears to match those areas of FARC-presence, especially in the West and Southeast regions, where the most belligerent blocks where active [@pena2013farc].
+
+The use of Black Marble HD, although limiting in the fact that only offers imagery for 2012 and 2016, is crucial for addressing two limitations of night lights data for the study of human activity in general, and in conflict settings in particular. First, top-coding of night lights value is possible specially in densely populated areas [@hsu2015dmsp]. Even though this study mostly comprises scarcely populated areas (the mean population per municipality is between 12100 and 22200 people). Black Marble HD imagery is generated from the
+Visible Infrared Imaging Radiometer Suite (VIIRS), which represents and improvement from the The Defense Meteorological Program (DMSP) Operational Line-Scan System (OLS), leading to fewer over-glow effects and spatially more explicit lights within densely populated areas [@li2020harmonized]. The second concern is that nigh light imagery obtained from different satellites or at different periods of time can be shifted by a couple of pixels. The construction of Black Marble HD images addresses this issue as it is a set of composite images that corrects for these spatial and temporal errors [@roman2018nasa]. The suitability of these images for the measurement of economic activity in war-stricken areas has been validated by its use in the Syrian conflict [@roman2018nasa].
+
+![Figure 2.  Geographic distribution of (A) treatment and control municipalities, (B) Changes in economic activity measured by night lights, (C) Changes in number of violent incidents, and (D) Changes in number of hectares planted in coca leaf. Note: Economic activity data for 2008 to 2011, and for 2013 were obtained from the DMSP-OLS imagery](C:/Users/fc3/Box/PConflict2/Figures/ggmap.png){width=70%}
+
+Data on violent incidents were obtained from the Aggregate Register of Victims, a database compiled by the Unit for the Attention and Integral Reparation of Victims of Colombia. This database comprises micro-data for approximately 1 million incidents of violence from 1984 until the present. Each incident is detailed with the year, code of the municipality in which it happened, type of violence, gender of the victim(s), whether they belong to an ethnic group, age group, and total number of victims. Changes in number of violent incidents are presented in figure 2(C) and follow a similar pattern where the largest decreases match areas of FARC presence. Illegal crops data were obtained from the System for the Observation of Drugs of Colombia (SIDCO) annual monitoring of territories affected by illegal crops [@de2017sistema]. Changes in number of hectares cultivated in coca leaf are presented in figure 2(D), however no distinct geographic pattern can be discerned.
+
+Municipal level data on demographic characteristics, Government revenues and expenditures, and public services coverage were obtained from the Municipal Panel compiled by the University of los Andes, Colombia [@acevedo2014panel]. Data on the continuity of presence of rebel groups were obtained from the Conflict Analysis Resource Center (CERAC) [@CERAC]. Summary statistics are presented in table 1:
+
+$$[insert descriptive here-Table 1]$$
+
+Figure 3 presents the time trends of the three outcomes of interest. The dashed vertical line represents the start of the peace talks between the Colombian Government and FARC. The figure validates the assumption of equal trends which is necessary for the validity of the difference-in-difference estimations that are carried in this paper. It also points at an increase in  in economic activity and coca cultivation and a decrease in intensity of violence across all configurations of treatment
+
+![Figure 3.  Time trends of (A) Changes in economic activity measured by night lights, (B) Changes in number of violent incidents, and (C) Changes in number of hectares planted in coca leaf, disaggregated by treatment group](C:/Users/fc3/Box/PConflict2/Figures/ggline.png){height=90%}
+
+# 4. Results
+
+## 4.1 The CRP and violence
+
+The initial estimation tests whether the CRP with FARC had an effect on the intensity of violence using a difference in difference approach that relates the configuration of armed group presence with the number of violent incidents at the municipal level in 2012 and 2016 (equation (1)). 2012 is the pre-treatment time period, as the formal peace talks began by the end of that year. The final peace agreement was signed in 2016, and is therefore evaluated as the post-treatment time period. Treatment encompasses all the peace-building efforts undertaken by FARC and the Government, including uni- and bilateral ceasefires, cessation of bombardments, demining activities, among others.
+
+$$
+\begin{array}{l}
+{Violence_{it}} = &\beta_0 + {\beta_1}POS-TREAT_t + {\beta_2}(FARC_i \times POS-TREAT_t) +  \\
+                  & {\beta_3}((FARC-ELN)_i \times POS-TREAT_t)  + \alpha_i + \mu_dt + \varepsilon_{it}
+\end{array}
+$$
+,(1)
+
+In this equation, $FARC_{it}$ and $(FARC-ELN)_{it}$ denote municipalities of sole FARC and joint FARC-ELN presence, respectively. Sole ELN municipalities are the omitted category, so the $\beta_2$ and $\beta_3$ coefficients capture the slope of sole FARC or joint FARC-ELN municipalities with respect to sole ELN municipalities. $POS-TREAT_t$ is a binary variable that takes value of 0 for 2012 and 1 for 2016. Municipality fixed effects, $\alpha_i$, and department-level time trends, $\mu_dt$ are also included. Standard errors are clustered at the municipal level. 
+
+$$[insert-eq1-table-here]$$
+
+Column (1) of table 2 reports the results of the estimation of equation (1). It shows that violence decreased across the two groups of municipalities where FARC was present with respect to municipalities where only ELN was present. Considering that the number of violent incidents remained almost unchanged in sole ELN municipalities  through the period of study, the CRP with FARC resulted in 9.07 and 8.7 less violent incidents in sole FARC and joint FARC-ELN municipalities between 2012 and 2016.
+
+I unpack this result by estimating a triple difference model exploring the stability of presence of the armed group in the municipality. Two further configurations are considered: whether the armed group was continuously present over the 12 year prior to the start of the peace talks or not. The results of this estimation are reported in column (2) of table 2. They show that even as violence decreased across all FARC present municipalities, the decrease was more acute in those areas of long-standing armed group presence, in line with the reports of PARES that point to a significant decrease in areas of historic conflict [@pares2018como]. It is worth noting that the decrease in violence in sole FARC and joint FARC-ELN municipalities with long-standing presence are not statistically different from each other [insert statistics here].
+
+To complement this estimation, I explore how the changes in number of violent incident evolve over time for each configuration of armed group presence by estimating the following equation:
+
+$$
+\begin{array}{l}
+{Violence_{it}} = &\beta_0 + \sum_{k \in \{ELN,FARC,FARC-ELN\}}\sum_{j = 2008, j \neq 2012}^{2018}{\theta_j^{K}}(GROUP_i^k \times \mathds{1} (TIME_t = j)) + \\
+                  &\alpha_i + \lambda_t + \mu_dt + \varepsilon_{it}
+\end{array}
+$$
+
+The slope coefficients ${\theta_j^{ELN}}$, ${\theta_j^{FARC}}$ and ${\theta_j^{FARC-ELN}}$ capture the in number of violent incidents for municipalities with sole FARC presence and joint FARC-ELN presence, with respect to the pre-treatment year, 2012. Figure 4 presents the result of this estimation:
+
+![Figure 4.  Configuration of armed group presence and conflict. The figure traces the slope of the relationship between the year and intensity of violence for each configuration of armed group presence. The pre-treatment year, 2012, is the droppped category so all slope coefficients, Θ, capture the change in violence in year j with respect to the slope coefficient in year 2012. The error bars correspond to the 95% confidence interval of the slope coefficient](C:/Users/fc3/Box/PConflict2/Figures/gph_slopev.png){height=90%}
+
+The trends in change of number of violent incidents by configuration of presence appears to follow the same pattern as the ones from the estimation of equation (1): there is a significant decrease in number of violent incidents in 2016 in sole FARC and joint FARC-ELN municipalities with respect to . This result strengthens the claim that public order conditions improved within FARC-present municipalities as a consequence of the CRP, although the decrease in intensity of violence is still statistically equal between sole FARC and joint FARC-ELN municipalities.
+
+## 4.2 Change in intensity of violence and economic activity
+
+Similar decreases in violence have been reported by @colino2012conflict in the case of the 1998 ceasefire between the Spanish Government and ETA, and by @besley2012estimating in the case of the 1994 ceasefire between the Irish Government and the IRA. These decreases have been linked to reduced uncertainty and the ensuing improvement in economic activity. This Subsection test the robustness of these results in the context of partial conflict resolution process by performing an analogous estimation as the one proposed in equation (1) with my metric of economic activity as dependent variable. 
+
+
+$$[insert-eq3-table-here]$$
+
+The results of this estimation are reported in column (1) of table 3. Two things are worth noting: first, municipalities of sole FARC presence experienced an increase in economic activity in line with the findings of the literature on the peace dividend. Second, there is no matching increase in municipalities where FARC and ELN were jointly present. The latter result is markedly different from the findings in sole FARC municipalities and those from the Basque and Northern Irish conflicts raising questions about the consistency of the mechanism that links the peace dividend to a reduction in uncertainty as violence decreases.
+
+First, I argue that this mechanism is indeed consistent across the subset of bilateral conflicts. In fact, the positive and significant increase in economic activity in sole FARC municipalities (where the Government was involved in a bilateral contest with FARC) supports it. It is in the context of multilateral conflicts where the mechanism falters. I argue that this is due to the fact that when FARC demobilized it was outlived by at least one other armed group: ELN. As a consequence, the Colombian State had to continue to contest the use of violence in those territories to the detriment of the efficiency of the Government [@acemoglu2013monopoly].
+
+Columns (2) and (3) offer additional insights for understanding these results: column (2) singles out municipalities of long-standing joint FARC and ELN presence as having significantly underperformed in terms of changes in economic activity. The results of column (3) show that economic activity in joint FARC-ELN municipalities decreased proportionally to initial levels of activity. In sole FARC municipalities, there was an increase proportional to the initial levels of activity. I believe this reflects the fact that the elasticity of economic activity is affected by how severe was the depression as a consequence of armed group presence. Jointly, they narrow down the territories that failed to benefit from the CRP to municipalities where FARC and ELN have been continuously present and where economic activity has been depressed the most.
+
+One limitation of this analysis is that it relies on the two available Black Marble HD images provided by NASA (2012 and 2016) impeding the estimation of a model analogous to that of equation (2). However, I believe the baseline analysis presented in table 2 is valid as it captures the conditions before (pre-treatment) and after (post-treatment) the peace talks, and frame the bulk of the changes in public order conditions that resulted from the conflict resolution process. Furthermore, the DMSP-OLS readings of night lights show that the trends were similar between groups in the year prior to 2012.
+
+## 4.3 Economic activity and coca cultivation
+
+I consider the possibility that the previous result, which suggests the existence of a peace dividend in areas where the sole armed group demobilized, can be contested as originating from an increase in illegal activities. In particular the possibility that it is associated with an increase in coca cultivation in areas of sole FARC presence as the control that the guerrilla had over the market loosened. Previous studies have found that areas of FARC presence (either sole or joint) increased coca cultivation compared to other coca-cultivating areas (for example, @lopez2019proceso). This subsection tests this hypothesis by conducting a set estimations exploring the changes in coca cultivation using the same methods proposed in the previous two subsections. The results of the analogous estimation of equation (1) with number of hectares planted in coca as dependent variable are presented in table 4:
+
+$$[insert-eq3-table-here]$$
+
+The results presented in column (1) of table 4 reject the hypothesis that the increase in economic activity can be traced to areas where the sole armed group (FARC) was demobilizing. The coefficient associated with this municipalities is negative and insignificant, showing that the change in coca cultivation in sole FARC municipalities is not statistically different from the change observed in sole ELN-present  municipalities. This finding shows that positive outcomes experience by sole FARC municipalities corresponds to an improvement in the legal economic activity of these areas and constitutes evidence of a measurable peace dividend. Due to the data limitations of this paper we cannot further disentangle the source of this peace dividend.
+
+Interestingly, the coefficient associated with areas of joint armed group presence is positive and statistically significant, showing that coca cultivation increased in areas where the demobilization of FARC left ELN as the sole armed group. Although it cannot be proven empirically due to the limitation of the data, I believe this result can be explained by the old maxim of illegal enterprises: "war is bad for business". Once FARC abandoned the market - as was required by the peace agreement - ELN was able to manage the coca business much more efficiently without the added cost of exertion of violence and intimidation of the competition.
+
+The complementary estimations further suggest that the increase in coca cultivation can be traced to areas of continued armed group presence and was directly proportional to the initial levels of coca cultivation. These characteristics also throw a light onto the dynamics of armed group involvement in illicit markets: the association with areas of continued rebel presence suggests that armed groups invested heavily in the control of these strategic areas and were unwilling to part from them and risk jeopardizing one of their main sources of revenue. The path of increase in coca cultivation also followed areas of proven productivity, with ELN seizing the market share left by FARC and increasing production in areas of proven coca production capacity.
+
+Next, I perform an analogous estimation to the one presented in equation (2) following the yearly changes in coca cultivation by armed group configuration. The results are presented in Figure 5:
+
+![Figure 4.  Configuration of armed group and coca cultivation. The figure traces the slope of the relationship between the year and intensity of coca cultivation for each configuration of armed group presence. The pre-treatment year, 2012, is the droppped category so all slope coefficients, Θ, capture the change in violence in year j with respect to the slope coefficient in year 2012. The error bars correspond to the 95% confidence interval of the slope coefficient](C:/Users/fc3/Box/PConflict2/Figures/gph_slopec.png){height=90%}
+
+It confirms the findings of the baseline estimation: the change in coca leaf cultivation can be traced to a positive and statistically significant increase in cultivation in joint FARC-ELN municipalities, which was specially pronounced between 2016 and 2018. No similar increase is observed in sole FARC  municipalities.
+
+## 4.3 Robustness checks
+
+I conduct two ancillary estimations to validate the robustness of the estimations presented in the previous subsections. First, I consider the possibility that the difference-in-difference estimation is capturing a different underlying trend than the one claimed in this paper. For instance, it is possible that, instead of a change in public order conditions in FARC-present municipalities compared to all other conflict municipalities (of which ELN-present municipalities is the representative group), there is a change solely in ELN-present municipalities, which, when compared to FARC-present municipalities, might suggest an improvement in the public order conditions of the latter, when in fact there is none.
+
+To test this hypothesis, I conduct a placebo test in which I assign fake treatment status to a set of municipalities where there has been public order issues in the past, but which have not had FARC presence. I select the groups where the right-wing paramilitary groups were present, and perform the same estimations proposed in equation (1) evaluating the changes in intensity of violence, economic activity, and coca cultivation. Under the assumption that public order conditions did not change in either ELN-present or paramilitary-present municipalities, the expectation is for the coefficient on the (fake) treatment to be insignificant. This expectation is validated through the results presented in table 5:
+
+$$[insert-eq1p-table-here]$$
+
+Second, I consider the possibility that the changes in public order conditions in FARC-present municipalities, although significantly different from those in ELN-present municipalities, are unrelated to the CRP. For instance, the possibility that a large enough number of FARC-present municipalities had able Governments in that period of time that, on top of improving the outcomes studied in this paper, improved other security indicators. To test this hypothesis, I perform an analogous estimation to the one presented in equation (1) yet using an security indicator that should not be affected by a CRP with FARC: house robbery. If security and public order conditions improved across the board, regardless of whether FARC engaged in them or not, a decrease in house robbery is expected as well. A negative and significant coefficient on house robbery would support the hypothesis that the change in public order conditions in FARC municipalities is unrelated to the CRP with the guerrilla. The results present in table 6 reject this hypothesis:
+
+$$[insert-eq2p-table-here]$$
+# 5. Conclusions
+
+Governments in developing countries have reasons to believe that peace agreements can bring a much needed economic boost to war-stricken areas. The literature on the peace dividend unequivocally points to improved economic conditions after temporary or permanent peace agreements [@colino2012conflict; @besley2012estimating], linking the decrease in violence to a reduced perception of uncertainty that prompts more economic activity. This believe has incentivized several Governments, including the Colombian Government, to seek peace agreements with however many armed groups are willing to undertake conflict resolution processes.
+
+Recent evidence of negative outcomes in multilateral conflicts where Governments negotiated peace with a subset of warring factions, raised questions about the seemingly straightforward path to reaping the benefits of peace in this context. In particular, recent studies on the Colombian conflict found that deforestation rates [@prem2020end] and murder of social leaders [@de2019killings] surged after the signature of the peace agreement. Although there is compelling evidence that these negative outcomes relate to the failure of the Government to fill the void left by the demobilizing group, it is still a challenge to reconcile the seemingly contradictory evidence provided by these two streams of literature. 
+
+This paper builds a bridge between these two camps by exploring the the difference between bilateral and multilateral conflicts. I leverage the unique setting of the Colombian conflict - in which the State was simultaneously involved in bilateral and multilateral contests with two guerrillas: the Revolutionary Armed Forces of Colombia (FARC) and the national Liberation Army (ELN) - to evaluate the differential impact of the demobilization of one armed group (FARC) on the economic activity and coca leaf cultivation at the municipal level. The evidence supports the existence of a peace dividend in areas where the State engaged in a bilateral conflict with FARC in line with the findings of @colino2012conflict and @besley2012estimating, and negative outcomes when it was engaged in a multilateral contest in which ELN outlived FARC. This suggests that partial conflict resolution processes can have unintended consequences if the situation with the remaining armed groups is not addressed carefully.
+
+# References
