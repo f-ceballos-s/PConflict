@@ -1,0 +1,229 @@
+---
+title: | 
+  | Incomplete Peace:  
+  | Unintended Consequences of Partial Conflict Resolution in Multilateral Conflicts 
+subtitle:   University of Illinois at Urbana-Champaign
+author:  
+  - Federico Ceballos Sierra 
+fontsize: 8pt
+output:
+  beamer_presentation:
+    theme: "default"
+    colortheme: "dolphin"
+    slide_level: 2
+    keep_tex: yes
+header-includes:
+- \usepackage{dsfont}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{30 de Marzo de 2019}
+- \fancyfoot[LE,RO]{\thepage}
+- \usepackage[most]{tcolorbox}
+- \definecolor{light-gray}{gray}{0.90}
+- \newtcolorbox{myquote}{colback=light-gray,grow to right by=-5mm,grow to left by=-5mm, boxrule=0pt,boxsep=0pt,breakable}
+- \newcommand{\todo}[1]{\begin{myquote} \textbf{Research question:} \emph{#1} \end{myquote}}
+mainfont: Garamond
+bibliography: C:/Users/fc3/Box/PConflict2/R_Markdown/PConflict2_bib.bib
+---
+
+```{r setup, include=FALSE}
+library(bibtex)
+library(knitr)
+library(png)
+library(grid)
+library(gridExtra)
+opts_chunk$set(echo = FALSE, fig.align="center")
+```
+
+## The setting:
+
+* Governments in war-stricken developing countries see peace agreements as a way to booost economic development.
+
+* Aproximately 1 in 3 currently active conflicts over Government control involve the legitimate State and at least 2 armed groups [@gleditsch2002armed; @pettersson2020organized].
+
+* Due to the difficulty of negotiating peace with all parties, these Governments often try to negotiate sequentially with one group at the time.
+
+### Why?
+
+There is compelling evidence about the benefits of peace, also known as peace dividend. Studies link a decrease in violence with an reduction of uncertainty and increased economic activity:
+
+* 1.3% - 3.5% increase in housing prices in Northern Ireland after the 1994 ceasefire between the Irish Government and IRA [@besley2012estimating]
+
+* 4% increase in manufacturing employment in the Basque Country after the 1998 ceasefire between the Spanish Government and ETA [@colino2012conflict]
+
+##
+
+### But...
+
+Some evidence in the context of partial conflict resolution in multilateral conflicts has found negative outcomes:
+
+* Increase in deforestarion rates after the 2016 Colombian peace agreement [@prem2020end].
+
+* Surge in number of murders of social leaders after the 2016 Colombian peace agreement [@de2019killings].
+
+### The issue
+
+How to reconcile this seemingly contradictory evidence? 
+
+&nbsp;
+
+\todo{What is the impact of partial conflict resolution in multilateral conflicts and how does it compare to the impact found in bilateral conflicts?}
+
+### Sneak peak at the results
+
+* Unequivocally positive outcomes in bilateral contests between the Government and FARC: increase in economic activity and no change in coca cultivation
+
+* Unequivocally negative outcomes in multilateral conflicts where FARC was outlived by ELN: no change in economic activity and an increase in coca cultivation.
+
+##
+
+### Contribution
+
+1. Provide better evidence to developing countries involved in multilateral conflicts about the consequences of signing partial peace agreements.
+
+2. Improve the efficacy and efficiency of peace-building interventions by designing them around a better understanding of outcomes of resolution processes across a wider spetrum of conflict configurations.
+
+### How?
+
+By studying the case of the partial conflict resolution process between the Colombian Government and the Revolutionary Armed Forces of Colombia embedded in a conflict characterized by:
+
+(i) The legitimate State fighting two armed groups with Nation-wide presence: FARC and the National Liberation Army (ELN)
+
+(ii) One demobilizing group (FARC) and one group that continued their activity unabated (ELN)
+
+(iii) Involvement of FARC and ELN in illegal activity, mainly the cocaine business
+
+\hyperlink{botton 1}{\beamerbutton{Peace talks}}
+\hypertarget{botton 2}{}
+
+##
+
+### How? (Contd.)
+
+Using a difference-in-differences approach that exploits the heterogeneity in armed group presence:
+
+::: columns
+
+:::: column
+
+### Empirical strategy
+
+$$
+\begin{aligned}
+{y_{it}} = &\beta_0 + {\beta_1}POS-TREAT_t + \\
+           &{\beta_2}(FARC_i \times POS-TREAT_t) + \\
+           &{\beta_3}((FARC-ELN)_i \times POS-TREAT_t)  + \\
+           &\alpha_i + \mu_dt + \varepsilon_{it}
+\end{aligned}
+$$
+
+* $y_{it}$: Violent incidents | Economic activity | Hectares planted in coca
+ 
+* $POS-TREAT_t$: Binary variable; 1 for 2016, 0 for 2012
+
+* $FARC_i$: Binary variable; sole FARC presence
+
+* $(FARC-ELN)_i$: Binary variable; joint FARC-ELN presence
+
+* ELN is the ommited category
+
+::::
+
+:::: column
+
+### Armed group presence
+
+![](C:/Users/fc3/Box/PConflict2/Figures/ggtmt.png){height=140%}
+
+::::
+
+:::
+
+## Challenges and data description
+
+1. Identification of armed group presence:
+    + Solution: 2016 electoral risk map published by the Electoral Observation Mission of Colombia.
+    + Plausible endogeneity: (i) Negotiation in the "midst of conflict", and (ii) No evidence of changes in armed group presence between 2012 and 2016.
+  
+2. Observation of economic activity in war-stricken areas
+    + Weak State presence, scarcity of formal transactions, and risk of asking questions.
+    + Solution: Use of NASA's Black Marble HD imagery, available for 2012 and 2016 (i) top-coding corrected, (ii) temporally and spatially robust, and (iii) high resolution of 500 m. x 500 m.
+    
+### Other data sources
+
+* **Number of violent incidents:** Aggregate Register of Victims  compiled by the Unit for the Attention and Integral Reparation of Victims of Colombia.
+
+* **Number of hectares planted in coca leaf:** System for the Observation of Drugs of Colombia.
+
+##
+
+### Baseline descriptive statistics
+
+![](C:/Users/fc3/Box/PConflict2/descr_img.png){height=70%}
+
+## Data exploration
+
+### Trends of economic activity, violence, and coca leaf cultivation
+
+![Figure.  Time trends of (A) Changes in economic activity measured by night lights, (B) Changes in number of violent incidents, and (C) Changes in number of hectares planted in coca leaf, disaggregated by treatment group](C:/Users/fc3/Box/PConflict2/Figures/ggline.png)
+
+##
+
+### Geographic distribution of changes in economic activity violence, and coca leaf cultivation
+
+![Figure.  Geographic distribution of (A) Changes in economic activity measured by night lights, (B) Changes in number of violent incidents, and (C) Changes in number of hectares planted in coca leaf, disaggregated by treatment group](C:/Users/fc3/Box/PConflict2/Figures/ggpres.png)
+
+## Results
+
+### Impact of the conflict resolution process on violence
+
+![](C:/Users/fc3/Box/PConflict2/eq1_img.png){width=90%}
+
+##
+
+$$
+\begin{aligned}
+{Violence_{it}} = &\beta_0 + \sum_{k \in groups}\sum_{j = 2008, j \neq 2012}^{2018}{\theta_j^{K}}(GROUP_i^k \times \mathds{1} (TIME_t = j)) + \\
+                  &\alpha_i + \lambda_t + \mu_dt + \varepsilon_{it}
+\end{aligned}
+$$
+
+![](C:/Users/fc3/Box/PConflict2/Figures/gph_slopev.png){height=60%}
+
+##
+
+### The conflict resolution process and economic activity
+
+![](C:/Users/fc3/Box/PConflict2/eq3_img.png){width=90%}
+
+##
+
+### The conflict resolution process and coca cultivation
+
+![](C:/Users/fc3/Box/PConflict2/eq2_img.png){width=90%}
+
+##
+
+![](C:/Users/fc3/Box/PConflict2/Figures/gph_slopec.png)
+
+##
+
+### Discussion
+
+
+
+### Conclusions
+
+
+
+## The Colombian peace talks
+
+\hypertarget{botton 1}{}
+
+![](C:/Users/fc3/Box/PConflict2/Figures/ggtalks.png){height=140%}
+
+\hyperlink{botton 2}{\beamerbutton{Back}}
+
+## References
+
+
